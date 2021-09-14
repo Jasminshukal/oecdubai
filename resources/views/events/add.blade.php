@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="widget-content widget-content-area">
-                    <form action="{{ route('event.store') }}" method="post">
+                    <form action="{{ route('event.store') }}" method="post" enctype="multipart/form-data">
                             @include('events._form')
                         <button type="submit" class="btn btn-primary mt-3">{{ __('event.submit') }}</button>
                     </form>

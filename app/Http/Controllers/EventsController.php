@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Events;
+use App\Http\Requests\EventRequest;
+use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 
 class EventsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events=Events::all();
+        $events=Event::all();
         $page_name="Event";
         $has_scrollspy=0;
         $scrollspy_offset='';
@@ -42,9 +48,15 @@ class EventsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
-        //
+        $fileName = time().'.'.$request->image_file->getClientOriginalExtension();
+        $request->image_file->move(public_path('images/events'), $fileName);
+        $request->request->remove('image');
+        $request->request->set('image', "images/events/".$fileName);
+        $event=Event::create($request->all());
+        \Session::flash('message', __('gallery.success'));
+        return redirect(route('event.index'));
     }
 
     /**
@@ -64,9 +76,14 @@ class EventsController extends Controller
      * @param  \App\Models\events  $events
      * @return \Illuminate\Http\Response
      */
-    public function edit(events $events)
+    public function edit($Events)
     {
-        //
+        $event=Event::find($Events);
+        $page_name="Event Edit";
+        $has_scrollspy=false;
+        $scrollspy_offset = false;
+        $category_name = "Start_kit";
+        return view('events.edit',compact('page_name','event','has_scrollspy','category_name'));
     }
 
     /**
@@ -76,10 +93,13 @@ class EventsController extends Controller
      * @param  \App\Models\events  $events
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, events $events)
+    public function update(EventRequest $request,$events)
     {
-        //
-    }
+        $event=Event::find($events);
+        $event->fill($request->all())->save();
+        \Session::flash('message', __('gallery.update'));
+        return redirect(route('gallery.index'));
+        }
 
     /**
      * Remove the specified resource from storage.

@@ -14,44 +14,38 @@
                                 <table id="default-ordering" class="table table-hover" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th>Action</th>
+                                            <th>{{ __('event.name') }}</th>
+                                            <th>{{ __('event.place') }}</th>
+                                            <th>{{ __('event.date') }}</th>
+                                            <th>{{ __('event.action') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($events as $event)
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td class="text-center"><button class="btn btn-primary">View</button> </td>
+                                            <td>{{ $event->title }}</td>
+                                            <td>{{ $event->place }}</td>
+                                            <td>{{ $event->date }}</td>
+                                            <td>
+                                                <a class="btn rounded-circle btn-primary" target="_blank" href="https://www.oecdubai.com/event-detail.php?slg={{ $event->slug }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                </a>
+                                                <a class="btn rounded-circle btn-warning" href="{{ route('event.edit',['event' => $event]) }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                                </a>
+                                                <button class="btn rounded-circle btn-danger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                </button>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Doris Wilder</td>
-                                            <td>Sales Assistant</td>
-                                            <td>Sidney</td>
-                                            <td>23</td>
-                                            <td>2010/09/20</td>
-                                            <td>$85,600</td>
-                                            <td class="text-center"><button class="btn btn-primary">View</button> </td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th class="invisible"></th>
+                                            <th>{{ __('event.name') }}</th>
+                                            <th>{{ __('event.place') }}</th>
+                                            <th>{{ __('event.date') }}</th>
+                                            <th>{{ __('event.action') }}</th>
                                         </tr>
                                     </tfoot>
                                 </table>

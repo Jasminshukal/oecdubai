@@ -15,7 +15,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
         for(var i = 0; i < numNodes; i++) {
             el = thumbElements[i];
 
-            // include only element nodes 
+            // include only element nodes
             if(el.nodeType !== 1) {
               continue;
             }
@@ -92,8 +92,8 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
             index;
 
         for (var i = 0; i < numChildNodes; i++) {
-            if(childNodes[i].nodeType !== 1) { 
-                continue; 
+            if(childNodes[i].nodeType !== 1) {
+                continue;
             }
 
             if(childNodes[i] === clickedListItem) {
@@ -122,10 +122,10 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
             if(!vars[i]) {
                 continue;
             }
-            var pair = vars[i].split('=');  
+            var pair = vars[i].split('=');
             if(pair.length < 2) {
                 continue;
-            }           
+            }
             params[pair[0]] = pair[1];
         }
 
@@ -153,7 +153,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
                 // See Options->getThumbBoundsFn section of docs for more info
                 var thumbnail = items[index].el.children[0],
                     pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                    rect = thumbnail.getBoundingClientRect(); 
+                    rect = thumbnail.getBoundingClientRect();
 
                 return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
             },
@@ -166,13 +166,13 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
                 captionEl.children[0].innerHTML = item.title +  '<br/><small>Photo: ' + item.author + '</small>';
                 return true;
             },
-            
+
         };
 
 
         if(fromURL) {
             if(options.galleryPIDs) {
-                // parse real index when custom PIDs are used 
+                // parse real index when custom PIDs are used
                 // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
                 for(var j = 0; j < items.length; j++) {
                     if(items[j].pid == index) {
@@ -238,7 +238,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
                     useLargeImages = true;
                     imageSrcWillChange = true;
                 }
-                
+
             } else {
                 if(useLargeImages) {
                     useLargeImages = false;

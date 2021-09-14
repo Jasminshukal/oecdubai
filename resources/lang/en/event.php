@@ -1,7 +1,9 @@
 <?php
 
 return [
+    'menu' => 'Events',
     'add_event' => "Add Events",
+    'edit_event' => "Edit Events",
     'name' => 'Event Name',
     'place' => 'Event Place',
     'date' => 'Event Date',
@@ -10,4 +12,5 @@ return [
     'image' => 'Event Image',
     'category' => 'Event Category',
     'submit' => "Store Event",
+    'action' => "Action",
 ];

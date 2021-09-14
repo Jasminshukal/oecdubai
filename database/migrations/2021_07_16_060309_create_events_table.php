@@ -15,10 +15,15 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('place');
+            $table->date('date');
+            $table->time('time');
             $table->text('description');
             $table->string('image');
-            $table->date('date');
+            $table->unsignedBigInteger('cat_id');
+            $table->foreign('cat_id')->references('id')->on('categories');
             $table->timestamps();
             $table->softDeletes();
         });

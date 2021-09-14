@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -850,7 +852,6 @@ Route::group(['middleware' => 'auth'] , function()
                 'page_name' => 'quill',
                 'has_scrollspy' => 1,
                 'scrollspy_offset' => 100,
-
             ];
             // $pageName = 'quill';
             return view('pages.forms.form_quill')->with($data);
@@ -941,7 +942,6 @@ Route::group(['middleware' => 'auth'] , function()
                 'page_name' => 'coming_soon',
                 'has_scrollspy' => 0,
                 'scrollspy_offset' => '',
-
             ];
             // $pageName = 'coming_soon';
             return view('pages.pages.pages_coming_soon')->with($data);
@@ -1310,6 +1310,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('event', EventsController::class);
+    Route::resource('blog', BlogController::class);
+    Route::resource('gallery', GalleryController::class);
 
-Route::resource('event', EventsController::class);
+});
+
+
+

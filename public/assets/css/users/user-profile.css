@@ -16,7 +16,7 @@
   padding-bottom: 25px;
 }
 
-/* 
+/*
 ===================
     User Profile
 ===================
@@ -74,7 +74,7 @@
 }
 .user-profile .widget-content-area .user-info-list ul.contacts-block {
   border: none;
-  max-width: 217px;
+  max-width: 282px;
   margin: 36px auto;
 }
 .user-profile .widget-content-area .user-info-list ul.contacts-block li {
@@ -117,7 +117,7 @@
   align-self: center;
 }
 
-/* 
+/*
 ==============
     Skills
 ==============
@@ -168,7 +168,7 @@
   align-self: center;
 }
 
-/* 
+/*
 ==============
     Bio
 ==============
@@ -227,7 +227,7 @@
   font-size: 13px;
 }
 
-/* 
+/*
 ================
     Education
 ================
@@ -336,7 +336,7 @@
     margin: 0 auto;
   }
 }
-/* 
+/*
 =======================
     Work Experience
 =======================

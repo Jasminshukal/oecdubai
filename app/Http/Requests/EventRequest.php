@@ -13,7 +13,7 @@ class EventRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,37 @@ class EventRequest extends FormRequest
      */
     public function rules()
     {
+
+        if(\Request::route()->getName()=="add")
+        {
+            return [
+                'title' => 'required|unique:events,title',
+                'place' => 'required',
+                'cat_id' => 'required',
+                'date' => 'required|date',
+                'time' => 'required',
+                'description' => 'required',
+                'image_file' => 'required|mimes:png,jpg'
+            ];
+
+        }
+        else
+        {
+            return [
+                'title' => 'required',
+                'place' => 'required',
+                'cat_id' => 'required',
+                'date' => 'required|date',
+                'time' => 'required',
+                'description' => 'required',
+            ];
+        }
+    }
+
+    public function messages()
+    {
         return [
-            //
+            'cat_id.required' => 'Category Filed is required',
         ];
     }
 }
