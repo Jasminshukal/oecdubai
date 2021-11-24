@@ -13,9 +13,10 @@
                     </div>
                 </div>
                 <div class="widget-content widget-content-area">
-                    <form action="{{ route('event.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('blog.update',$blog->id) }}" method="post" enctype="multipart/form-data">
+                        @method('PATCH')
                             @include('blog._form_edit')
-                        <button type="submit" class="btn btn-primary mt-3">{{ __('event.submit') }}</button>
+                        <button type="submit" class="btn btn-primary mt-3">Save Blog</button>
                     </form>
                 </div>
             </div>

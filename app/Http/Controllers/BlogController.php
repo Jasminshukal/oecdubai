@@ -91,7 +91,26 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $request->request->remove('_method');
+        $request->request->remove('_token');
+        if($request->has('image_file'))
+        {
+            $fileName = time().'.'.$request->image_file->getClientOriginalExtension();
+            $request->image_file->move(public_path('images/events'), $fileName);
+            $request->request->remove('image');
+
+            $request->request->set('image', $fileName);
+        }
+        else
+        {
+            $request->request->set('image', 'default.jpg');
+
+        }
+        // $event=Blog::create($request->all());
+        $affectedRows = Blog::where("id",$blog->id)->update($request->all());
+
+        Session::flash('message', "Blog Updated Successfully");
+        return redirect(route('blog.index'));
     }
 
     /**
