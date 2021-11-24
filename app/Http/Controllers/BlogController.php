@@ -75,7 +75,11 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $page_name="Event";
+        $has_scrollspy=0;
+        $scrollspy_offset='';
+        $category_name='events';
+        return view('blog.edit',compact('blog','page_name','has_scrollspy','scrollspy_offset','category_name'));
     }
 
     /**

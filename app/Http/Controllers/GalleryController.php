@@ -75,7 +75,7 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        //
+        dd($gallery);
     }
 
     /**

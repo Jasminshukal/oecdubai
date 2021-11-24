@@ -8,13 +8,13 @@
                 <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>{{ __('blog.add_blog') }}</h4>
+                            <h4>Edit Blog </h4>
                         </div>
                     </div>
                 </div>
                 <div class="widget-content widget-content-area">
                     <form action="{{ route('event.store') }}" method="post" enctype="multipart/form-data">
-                            @include('blog._form')
+                            @include('blog._form_edit')
                         <button type="submit" class="btn btn-primary mt-3">{{ __('event.submit') }}</button>
                     </form>
                 </div>
