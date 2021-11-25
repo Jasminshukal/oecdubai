@@ -12,7 +12,7 @@
                     </a>
                 </li>
                 <li class="nav-item theme-text">
-                    <a href="/analytics" class="nav-link"> Overseas Education Centre In India </a>
+                    <a href="/analytics" class="nav-link"> Overseas Education Centre In Dubai </a>
                 </li>
             </ul>
 

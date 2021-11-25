@@ -25,7 +25,7 @@ class EventRequest extends FormRequest
     {
 
         if(\Request::route()->getName()=="add")
-        {
+        { 
             return [
                 'title' => 'required|unique:events,title',
                 'place' => 'required',

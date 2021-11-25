@@ -33,14 +33,7 @@
                             </li>
                         </ul>
                     </li> --}}
-                    <li class="menu {{ ($category_name === 'event') ? 'active' : '' }}">
-                        <a href="{{ url('home') }}" aria-expanded="{{ ($category_name === 'event') ? 'true' : 'false' }}" class="dropdown-toggle">
-                            <div class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                <span>Home</span>
-                            </div>
-                        </a>
-                    </li>
+
                     <li class="menu {{ ($category_name === 'event') ? 'active' : '' }}">
                         {{-- <a href="{{ route('event.index') }}" aria-expanded="{{ ($category_name === 'events') ? 'true' : 'false' }}"> --}}
                         <a href="{{ url('event') }}" aria-expanded="{{ ($category_name === 'event') ? 'true' : 'false' }}" class="dropdown-toggle">
@@ -52,7 +45,9 @@
                     </li>
                     <li class="menu {{ ($category_name === 'blog') ? 'active' : '' }}">
                         {{-- <a href="{{ route('event.index') }}" aria-expanded="{{ ($category_name === 'events') ? 'true' : 'false' }}"> --}}
-                        <a href="{{ url('blog') }}" aria-expanded="{{ ($category_name === 'blog') ? 'true' : 'false' }}" class="dropdown-toggle">
+                        <a href="{{ url('blog') }}" aria-expanded="{{ ($category_name === '+
+
+                        ') ? 'true' : 'false' }}" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                                 <span>{{ __('blog.menu') }}</span>
@@ -65,6 +60,16 @@
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-film"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
                                 <span>{{ __('gallery.menu') }}</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="menu {{ ($category_name === 'university') ? 'active' : '' }}">
+                        {{-- <a href="{{ route('event.index') }}" aria-expanded="{{ ($category_name === 'events') ? 'true' : 'false' }}"> --}}
+                        <a href="{{ route('university.index') }}" aria-expanded="{{ ($category_name === 'university') ? 'true' : 'false' }}" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                <span>University</span>
                             </div>
                         </a>
                     </li>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\UniversityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -1315,6 +1316,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('event', EventsController::class);
     Route::resource('blog', BlogController::class);
     Route::resource('gallery', GalleryController::class);
+    Route::resource('university', UniversityController::class);
 
 });
 

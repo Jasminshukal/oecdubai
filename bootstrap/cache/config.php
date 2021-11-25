@@ -258,6 +258,17 @@
     'max_age' => 0,
     'supports_credentials' => false,
   ),
+  'country' => 
+  array (
+    'australia' => 'Australia',
+    'canada' => 'Canada',
+    'dubai' => 'Dubai',
+    'ireland' => 'Ireland',
+    'new_zealand' => 'New Zealand',
+    'singapore' => 'Singapore',
+    'uk' => 'UK',
+    'usa' => 'USA',
+  ),
   'database' => 
   array (
     'default' => 'mysql',
