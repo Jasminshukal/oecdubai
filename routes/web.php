@@ -3,6 +3,8 @@
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UniversityController;
 use Illuminate\Support\Facades\Route;
 
@@ -1306,7 +1308,7 @@ Route::group(['middleware' => 'auth'] , function()
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
@@ -1317,7 +1319,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('blog', BlogController::class);
     Route::resource('gallery', GalleryController::class);
     Route::resource('university', UniversityController::class);
-
+    Route::resource('HomePage', HomePageController::class);
+    Route::resource('Testimonial', TestimonialController::class);
 });
 
 

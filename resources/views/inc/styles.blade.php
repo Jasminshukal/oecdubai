@@ -791,7 +791,13 @@
       {{-- Table Datatable Basic --}}
       <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/datatables.css')}}">
       <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/dt-global_style.css')}}">
-      @break
+    @break
+
+    @case('University')
+      {{-- Table Datatable Basic --}}
+      <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/datatables.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/dt-global_style.css')}}">
+    @break
 
     @case('custom')
       {{-- Table Datatable Custom --}}

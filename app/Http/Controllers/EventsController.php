@@ -21,7 +21,7 @@ class EventsController extends Controller
     public function index()
     {
         $events=Event::all();
-        $page_name="Event";
+        $page_name="events";
         $has_scrollspy=0;
         $scrollspy_offset='';
         $category_name='events';

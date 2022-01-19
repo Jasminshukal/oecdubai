@@ -105,7 +105,7 @@ class UniversityController extends Controller
      */
     public function destroy(University $university)
     {
-        //$university->delete();
+        $university->delete();
         \Session::flash('error', 'University Deleted Successfully!');
         return redirect(route('university.index'));
     }

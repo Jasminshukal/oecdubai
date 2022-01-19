@@ -17,7 +17,7 @@ class BlogController extends Controller
     public function index()
     {
         $blogs=Blog::all();
-        $page_name="Event";
+        $page_name="blog";
         $has_scrollspy=0;
         $scrollspy_offset='';
         $category_name='blogs';
@@ -106,8 +106,7 @@ class BlogController extends Controller
             $request->request->set('image', 'default.jpg');
 
         }
-        // $event=Blog::create($request->all());
-        $affectedRows = Blog::where("id",$blog->id)->update($request->all());
+        $affectedRows = Blog::where("id",$blog->id)->update($request->except('image_file'));
 
         Session::flash('message', "Blog Updated Successfully");
         return redirect(route('blog.index'));
